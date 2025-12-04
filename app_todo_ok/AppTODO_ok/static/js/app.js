@@ -63,6 +63,7 @@ async function loadTasks() {
         // Area icone
         const actions = document.createElement("div");
 
+        /*
         // ✓ / ↺ icona
         const toggle = document.createElement("button");
         toggle.className = "icon-btn";
@@ -70,6 +71,7 @@ async function loadTasks() {
             ? '<i class="fa-solid fa-rotate-left" title="Segna come incompleta"></i>'
             : '<i class="fa-solid fa-check" title="Completa"></i>';
         toggle.onclick = () => updateTask(t.id, !t.done);
+        */
 
         // 🗑 icona
         const del = document.createElement("button");
@@ -77,7 +79,7 @@ async function loadTasks() {
         del.innerHTML = '<i class="fa-solid fa-trash" title="Elimina"></i>';
         del.onclick = () => deleteTask(t.id);
 
-        actions.appendChild(toggle);
+        //actions.appendChild(toggle);
         actions.appendChild(del);
 
         li.appendChild(textSpan);
@@ -98,6 +100,7 @@ async function addTask() {
     loadTasks();
 }
 
+/*
 async function updateTask(id, done) {
     await fetch(`/api/tasks/${id}`, {
         method: "PUT",
@@ -107,7 +110,7 @@ async function updateTask(id, done) {
 
     loadTasks();
 }
-
+*/
 
 async function deleteTask(id) {
     await fetch(`/api/tasks/${id}/delete`, {method: "DELETE"});

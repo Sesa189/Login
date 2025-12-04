@@ -167,17 +167,17 @@ li div {
     font-size: 18px;
 }
 
-/* Se una task è completata, l'icona ✓ diventa verde */
+/* Se una task è completata, l'icona ✓ diventa verde
 li.done .icon-btn i.fa-check {
     color: #28a745 !important;
-}
+}*/
 
 /* Icona elimina sempre rossa */
 .icon-btn i.fa-trash {
     color: #dc3545 !important;
 }
 
-/* Icona ripristino (↺) arancione */
+/* Icona ripristino (↺) arancione
 .icon-btn i.fa-rotate-left {
     color: #ff9800 !important;
-}
+}*/

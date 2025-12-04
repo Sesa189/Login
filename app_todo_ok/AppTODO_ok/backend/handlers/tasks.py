@@ -9,8 +9,7 @@ class TasksHandler(BaseHandler):
         user = self.get_current_user()
         if not user:
             return self.write_json({"error": "Non autenticato"}, 401)
-
-        cursor = tasks.find({"user_id": ObjectId(user["id"])})
+        cursor = tasks.find()
         out = []
         async for t in cursor:
             out.append({
