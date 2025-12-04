@@ -15,7 +15,8 @@ class TasksHandler(BaseHandler):
             out.append({
                 "id": str(t["_id"]),
                 "text": t["text"],
-                "done": t["done"]
+                "done": t["done"],
+                "email" : t["email"]
             })
 
         return self.write_json({"items": out})
@@ -34,7 +35,8 @@ class TasksHandler(BaseHandler):
         result = await tasks.insert_one({
             "user_id": ObjectId(user["id"]),
             "text": text,
-            "done": False
+            "done": False,
+            "email": user["email"]
         })
 
         return self.write_json({"id": str(result.inserted_id)}, 201)

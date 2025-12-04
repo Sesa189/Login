@@ -41,7 +41,7 @@ async function logout() {
 
 
 async function loadTasks() {
-    const res = await fetch("/api/tasks");
+    const res = await fetch("/api/tasks", { credentials: "include" });
 
     if (res.status !== 200) {
         location.href = "login.html";
@@ -49,12 +49,18 @@ async function loadTasks() {
     }
 
     const data = await res.json();
+    console.log(data.items);
     const list = document.getElementById("taskList");
     list.innerHTML = "";
 
     data.items.forEach(t => {
         const li = document.createElement("li");
         li.className = t.done ? "done" : "";
+
+
+        // Email
+        const emailSpan = document.createElement("span");
+        emailSpan.textContent = t.email;
 
         // Testo
         const textSpan = document.createElement("span");
@@ -82,6 +88,7 @@ async function loadTasks() {
         //actions.appendChild(toggle);
         actions.appendChild(del);
 
+        li.appendChild(emailSpan);
         li.appendChild(textSpan);
         li.appendChild(actions);
         list.appendChild(li);
