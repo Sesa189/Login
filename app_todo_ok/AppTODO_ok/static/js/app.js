@@ -58,9 +58,9 @@ async function loadTasks() {
         li.className = t.done ? "done" : "";
 
 
-        // Email
+        // Email + ora
         const emailSpan = document.createElement("span");
-        emailSpan.textContent = t.email;
+        emailSpan.textContent = `${t.email} • ${t.date} :`;
 
         // Testo
         const textSpan = document.createElement("span");
@@ -92,6 +92,7 @@ async function loadTasks() {
         li.appendChild(textSpan);
         li.appendChild(actions);
         list.appendChild(li);
+        console.log("Task:", t);
     });
 }
 

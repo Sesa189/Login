@@ -2,6 +2,7 @@ import tornado.escape
 from bson import ObjectId
 from backend.db import tasks
 from backend.handlers.auth import BaseHandler
+from datetime import datetime
 
 
 class TasksHandler(BaseHandler):
@@ -16,7 +17,8 @@ class TasksHandler(BaseHandler):
                 "id": str(t["_id"]),
                 "text": t["text"],
                 "done": t["done"],
-                "email" : t["email"]
+                "email" : t["email"],
+                "date" : t["date"]
             })
 
         return self.write_json({"items": out})
@@ -36,7 +38,8 @@ class TasksHandler(BaseHandler):
             "user_id": ObjectId(user["id"]),
             "text": text,
             "done": False,
-            "email": user["email"]
+            "email": user["email"],
+            "date": datetime.now().strftime("%H:%M:%S")
         })
 
         return self.write_json({"id": str(result.inserted_id)}, 201)
