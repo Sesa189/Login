@@ -41,6 +41,15 @@ async function logout() {
 
 
 async function loadTasks() {
+    const resUser = await fetch("/api/user", { credentials: "include" });
+
+    if (resUser.status !== 200) {
+        location.href = "login.html";
+        return;
+    }
+
+    const user = await resUser.json()
+
     const res = await fetch("/api/tasks", { credentials: "include" });
 
     if (res.status !== 200) {
@@ -57,6 +66,9 @@ async function loadTasks() {
         const li = document.createElement("li");
         li.className = t.done ? "done" : "";
 
+        if(user.email == t.email ){
+            li.classList.add("current");
+        }
 
         // Email + ora
         const emailSpan = document.createElement("span");

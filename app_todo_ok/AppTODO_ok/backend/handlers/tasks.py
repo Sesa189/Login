@@ -4,6 +4,15 @@ from backend.db import tasks
 from backend.handlers.auth import BaseHandler
 from datetime import datetime
 
+class UserHandler(BaseHandler):
+    async def get(self):
+        user =  self.get_current_user()
+        if not user:
+            return self.write_json({"error": "Non autenticato"}, 401)
+        return self.write_json({
+            "id": user["id"],
+            "email": user["email"]
+        })
 
 class TasksHandler(BaseHandler):
     async def get(self):

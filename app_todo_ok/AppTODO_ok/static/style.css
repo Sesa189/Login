@@ -181,3 +181,7 @@ li.done .icon-btn i.fa-check {
 .icon-btn i.fa-rotate-left {
     color: #ff9800 !important;
 }*/
+
+li.current {
+    background-color: DarkSeaGreen;
+}

@@ -6,7 +6,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from collections.abc import MutableMapping
 from backend.db import COOKIE_SECRET, PORT
 from backend.handlers.auth import RegisterHandler, LoginHandler, LogoutHandler
-from backend.handlers.tasks import TasksHandler, TaskUpdateHandler, TaskDeleteHandler
+from backend.handlers.tasks import TasksHandler, TaskUpdateHandler, TaskDeleteHandler, UserHandler
 
 
 def make_app():
@@ -16,6 +16,7 @@ def make_app():
             (r"/api/login", LoginHandler),
             (r"/api/logout", LogoutHandler),
 
+            (r"/api/user", UserHandler),
             (r"/api/tasks", TasksHandler),
             (r"/api/tasks/([a-f0-9]{24})", TaskUpdateHandler),
             (r"/api/tasks/([a-f0-9]{24})/delete", TaskDeleteHandler),
