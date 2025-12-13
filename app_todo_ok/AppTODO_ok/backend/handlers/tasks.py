@@ -16,19 +16,25 @@ class UserHandler(BaseHandler):
 
 class TasksHandler(BaseHandler):
     async def get(self):
+        cont = 0
+        max_mex = 20
         user = self.get_current_user()
         if not user:
             return self.write_json({"error": "Non autenticato"}, 401)
         cursor = tasks.find()
         out = []
         async for t in cursor:
-            out.append({
-                "id": str(t["_id"]),
-                "text": t["text"],
-                "done": t["done"],
-                "email" : t["email"],
-                "date" : t["date"]
-            })
+            cont += 1
+            if cont == max_mex + 1:
+                break
+            else:
+                out.append({
+                    "id": str(t["_id"]),
+                    "text": t["text"],
+                    "done": t["done"],
+                    "email" : t["email"],
+                    "date" : t["date"]
+                })
 
         return self.write_json({"items": out})
 

@@ -21,8 +21,16 @@ body {
 /* ============================
    CONTAINER
 =============================*/
-.container {
+.container_login_register {
     width: 360px;
+    background: white;
+    padding: 25px 22px;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+}
+
+.container_chat {
+    width: 960px;
     background: white;
     padding: 25px 22px;
     border-radius: 12px;
@@ -183,5 +191,54 @@ li.done .icon-btn i.fa-check {
 }*/
 
 li.current {
-    background-color: DarkSeaGreen;
+    background-color: #C7F2DF;
+}
+
+#taskList {
+  padding: 0;
+  margin: 0;
+}
+
+#taskList li {
+  list-style: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;   /* impila gli elementi in colonna */
+  align-items: flex-start;  /* allinea a sinistra */
+  gap: 6px;                 /* spazio verticale tra email, testo e icona */
+  box-sizing: border-box;
+  width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+#taskList .email {
+  flex: 0 0 200px;        /* larghezza fissa di 200px */
+  max-width: 200px;       /* non supera 200px */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Messaggio: spazio massimo */
+#taskList .text {
+  flex: 1;                /* prende lo spazio rimanente */
+  max-width: calc(100% - 220px); /* calcola spazio massimo */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  color: #333;
+}
+
+/* Azioni (icone) */
+#taskList .actions {
+  margin-left: auto;
+  display: flex;
+  gap: 6px;
+  align-items: center;
 }

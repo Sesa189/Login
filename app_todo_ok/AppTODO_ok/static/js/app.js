@@ -72,7 +72,14 @@ async function loadTasks() {
 
         // Email + ora
         const emailSpan = document.createElement("span");
-        emailSpan.textContent = `${t.email} • ${t.date} :`;
+        if(user.email == t.email ){
+            emailSpan.innerHTML = `<strong>You</strong> • ${t.date} :`;
+        }
+        else{
+            emailSpan.innerHTML = `<strong>${t.email}</strong> • ${t.date} :`;
+        }
+
+        //Ora
 
         // Testo
         const textSpan = document.createElement("span");
@@ -98,7 +105,9 @@ async function loadTasks() {
         del.onclick = () => deleteTask(t.id);
 
         //actions.appendChild(toggle);
-        actions.appendChild(del);
+        if(user.email == t.email){
+            actions.appendChild(del);
+        }
 
         li.appendChild(emailSpan);
         li.appendChild(textSpan);

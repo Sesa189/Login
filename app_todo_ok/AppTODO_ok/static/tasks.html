@@ -5,64 +5,13 @@
     <title>Le mie Task</title>
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        #taskList {
-          padding: 0;
-          margin: 0;
-        }
-
-        #taskList li {
-          list-style: none;
-          border: 1px solid #ccc;
-          padding: 10px;
-          margin-bottom: 8px;
-          display: flex;
-          flex-direction: column;   /* impila gli elementi in colonna */
-          align-items: flex-start;  /* allinea a sinistra */
-          gap: 6px;                 /* spazio verticale tra email, testo e icona */
-          box-sizing: border-box;
-          width: 100%;
-          word-break: break-word;
-          overflow-wrap: break-word;
-          white-space: normal;
-        }
-
-        #taskList .email {
-          flex: 0 0 200px;        /* larghezza fissa di 200px */
-          max-width: 200px;       /* non supera 200px */
-          overflow-wrap: break-word;
-          word-break: break-word;
-          white-space: normal;
-          font-weight: bold;
-          color: #222;
-        }
-
-        /* Messaggio: spazio massimo */
-        #taskList .text {
-          flex: 1;                /* prende lo spazio rimanente */
-          max-width: calc(100% - 220px); /* calcola spazio massimo */
-          overflow-wrap: break-word;
-          word-break: break-word;
-          white-space: normal;
-          color: #333;
-        }
-
-        /* Azioni (icone) */
-        #taskList .actions {
-          margin-left: auto;
-          display: flex;
-          gap: 6px;
-          align-items: center;
-        }
-    </style>
-
     <!-- ICONS -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<div class="container">
+<div class="container_chat">
     <h2>Chat di gruppo</h2>
 
     <input id="taskText" placeholder="Nuovo messaggio...">
